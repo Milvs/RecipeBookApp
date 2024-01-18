@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-shopping-edit',
   standalone: true,
-  imports: [],
+  imports: [
+    NgForOf
+  ],
   templateUrl: './shopping-edit.component.html',
   styleUrl: './shopping-edit.component.css'
 })
