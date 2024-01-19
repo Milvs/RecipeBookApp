@@ -14,4 +14,10 @@ import {HeaderComponent} from "./header/header.component";
 })
 export class AppComponent {
   title = 'angular-recipe-book';
+  loadedFeature='recipe';
+
+  onNavigate(feature:string) {
+    this.loadedFeature=feature;
+
+  }
 }
