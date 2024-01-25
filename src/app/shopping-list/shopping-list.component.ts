@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ShoppingEditComponent} from "./shopping-edit/shopping-edit.component";
 import {Ingredient} from "../shared/ingredient.mode";
 import {NgForOf} from "@angular/common";
+import {ShoppingListService} from "./shooping-list.service";
 
 @Component({
   selector: 'app-shopping-list',
@@ -13,13 +14,13 @@ import {NgForOf} from "@angular/common";
   templateUrl: './shopping-list.component.html',
   styleUrl: './shopping-list.component.css'
 })
-export class ShoppingListComponent {
-  ingredients:Ingredient[]=[ new Ingredient("Chicken breast",2),
-  new Ingredient("Tomatoes",10)];
+export class ShoppingListComponent implements OnInit{
+  ingredients:Ingredient[];
 
+  constructor(private shoppingListService:ShoppingListService) {}
 
-  onIngredientAdded(ingredient: Ingredient) {
-    this.ingredients.push(ingredient);
-
-  }
+    ngOnInit() {
+    this.ingredients = this.shoppingListService.getIngredients();
+    this.shoppingListService.ingredientsChanged.subscribe((ingredients:Ingredient[])=>{this.ingredients=ingredients;})
+    }
 }
