@@ -1,0 +1,16 @@
+.btn-success{
+    background-color: #E6A4B4;
+    border:none;
+}
+.btn-danger{
+  background-color: #f11f52;
+  border:none;
+}
+.btn-primary{
+  background-color: #7a8aee;
+  border:none;
+}
+.btn{
+  margin: 5px;
+}
+
